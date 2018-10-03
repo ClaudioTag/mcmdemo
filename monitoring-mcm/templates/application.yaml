@@ -5,7 +5,7 @@ metadata:
   labels:
     app: mynw-monitoring
     chart: mynw-monitoring-0.0.2
-    release: 0.0.2
+    release: mynw-monitoring
     name: mynw-monitoring
 spec:
   selector:

@@ -2,6 +2,8 @@ kind: Service
 apiVersion: v1
 metadata:
   name: mynw-svc
+  labels:
+    solution: monitoring-mcm
 spec:
   selector:
     app: monitoring-icp

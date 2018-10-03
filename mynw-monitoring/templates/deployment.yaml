@@ -10,6 +10,7 @@ spec:
     metadata:
       labels:
         app: monitoring-icp
+        solution: monitoring-mcm
         tier: backend
         track: stable
         role: web
@@ -26,4 +27,3 @@ spec:
           env:
             - name: TARGET_ENV
               value: dev
-      

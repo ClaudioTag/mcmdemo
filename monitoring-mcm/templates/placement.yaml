@@ -9,7 +9,7 @@ spec:
   replicas: 1
   clusterSelector:
     matchLabels:
-     purpose: dev 
+     purpose: dev
   resourceSelector:
     type: cpu
     order: desc

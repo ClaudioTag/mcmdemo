@@ -4,9 +4,10 @@ metadata:
   name: mynw-monitoring
   labels:
     app: mynw-monitoring
-    chart: mynw-monitoring-0.0.2
+    chart: mynw-monitoring-0.0.3
     release: mynw-monitoring
     name: mynw-monitoring
+    deployable: mynw-monitoring-deployable
 spec:
   selector:
     matchExpressions:
@@ -17,4 +18,4 @@ spec:
       - mynw-monitoring-pp
   componentKinds:
   - group: core
-kind: Pods
+    kind: Pods

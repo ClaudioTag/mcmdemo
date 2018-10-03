@@ -4,12 +4,13 @@ metadata:
   name: mynw-monitoring-deployable
   labels:
     app: mynw-monitoring-deployable
-    chart: mynw-monitoring-0.0.2
+    chart: mynw-monitoring-0.0.3
     release: mynw-monitoring
     name: mynw-monitoring
+    placementPolicy: mynw-monitoring-pp
 spec:
   deployer:
     kind: helm
     helm:
-      chartURL: https://raw.githubusercontent.com/ClaudioTag/mcmdemo/master/mynw-monitoring-0.0.2.tgz
-namespace: default
+      chartURL: https://raw.githubusercontent.com/ClaudioTag/mcmdemo/master/mynw-monitoring-0.0.3.tgz
+      namespace: default

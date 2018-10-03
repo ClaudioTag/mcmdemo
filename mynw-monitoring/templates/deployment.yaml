@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: ipc-monitoring
   labels:
-    versionNo: 0.0.1
+    versionNo: 0.0.2
 spec:
   replicas: 1
   template:

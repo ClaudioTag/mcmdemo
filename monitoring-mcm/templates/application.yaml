@@ -1,0 +1,20 @@
+apiVersion: mcm.ibm.com/v1alpha1
+kind: Application
+metadata:
+  name: mynw-monitoring
+  labels:
+    app: mynw-monitoring
+    chart: mynw-monitoring-0.0.1
+    release: 0.0.1
+    name: mynw-monitoring
+spec:
+  selector:
+    matchExpressions:
+    - key: app
+      operator: In
+      values:
+      - mynw-monitoring-deployable
+      - mynw-monitoring-pp
+  componentKinds:
+  - group: core
+kind: Pods

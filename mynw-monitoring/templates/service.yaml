@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: mynw-svc
+spec:
+  selector:
+    app: monitoring-icp
+    tier: backend
+  ports:
+  - name: https
+    protocol: TCP
+    port: 5000
+    targetPort: 5000

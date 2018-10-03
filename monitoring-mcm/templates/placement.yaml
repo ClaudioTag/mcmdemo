@@ -1,0 +1,15 @@
+apiVersion: hcm.ibm.com/v1alpha1
+kind: PlacementPolicy
+metadata:
+  name: mynw-monitoring-pp
+  labels:
+    name: mynw-monitoring-pp
+    hcmappname: "monitoring"
+spec:
+  replicas: 1
+  clusterSelector:
+    matchLabels:
+     purpose: dev 
+  resourceSelector:
+    type: cpu
+    order: desc

@@ -1,4 +1,4 @@
-apiVersion: hcm.ibm.com/v1alpha1
+apiVersion: mcm.ibm.com/v1alpha1
 kind: PlacementPolicy
 metadata:
   name: mynw-monitoring-pp
@@ -9,7 +9,8 @@ spec:
   replicas: 1
   clusterSelector:
     matchLabels:
-     purpose: dev
+     environment: Dev
+     datacenter: toronto
   resourceSelector:
     type: cpu
     order: desc

@@ -10,12 +10,18 @@ metadata:
     deployable: mynw-monitoring-deployable
 spec:
   selector:
+    matchLabels:
+      solution: monitoring-mcm
     matchExpressions:
     - key: app
       operator: In
       values:
       - mynw-monitoring-deployable
       - mynw-monitoring-pp
+    - key: solution
+      operator: In
+      values:
+      - monitoring-mcm
   componentKinds:
   - group: core
     kind: Pods

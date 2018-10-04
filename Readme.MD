@@ -16,7 +16,6 @@ $ kubectl edit pp <placement_policy_name>
 - Ping ingress on awscluster: https://icp-e526-proxy-c1a3ab0c1291f594.elb.eu-west-2.amazonaws.com/monitoring-mcm
 
 ## To-do
-- Move docker image(s) from AWS registry to ICP registry (and update `mynw-monitoring/templates/deployment.yaml`)
 - Add application components to MCM application
 - Chart is not deployable from UI, but on Helm CLI
 

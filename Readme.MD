@@ -26,7 +26,7 @@ $ kubectl edit pp <placement_policy_name>
 - Package application: `helm package monitoring-mcm`
 - Upload chart to ICP hubcluster:
 ```
-$ cloudctl catalog load-chart --archive <helm_chart_archive>
+$ cloudctl catalog load-chart --archive monitoring-mcm-<version number>.tgz
 ```
 - Deploy chart from CLI:
 ```

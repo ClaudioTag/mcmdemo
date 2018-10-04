@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: ipc-monitoring
   labels:
-    versionNo: 0.0.3
+    versionNo: 0.0.4
 spec:
   replicas: 1
   template:
@@ -19,7 +19,7 @@ spec:
         - name: regsecret
       containers:
         - name: moniotoring-image-icp
-          image: 038180458258.dkr.ecr.eu-west-1.amazonaws.com/monitoring:latest
+          image: icp-e526-console-62d49fd43e0570d3.elb.eu-west-2.amazonaws.com:8500/default/monitoring:latest
           imagePullPolicy: Always
           ports:
             - name: http

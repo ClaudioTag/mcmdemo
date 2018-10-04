@@ -1,0 +1,16 @@
+apiVersion: mcm.ibm.com/v1alpha1
+kind: Deployable
+metadata:
+  name: mynw-creds-deployable
+  labels:
+    app: mynw-creds-deployable
+    chart: mynw-creds-0.0.3
+    release: mynw-creds
+    name: mynw-creds
+    placementPolicy: mynw-creds-pp
+spec:
+  deployer:
+    kind: helm
+    helm:
+      chartURL: https://raw.githubusercontent.com/ClaudioTag/mcmdemo/master/mynw-creds-0.0.1.tgz
+      namespace: default

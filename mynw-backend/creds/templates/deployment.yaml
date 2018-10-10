@@ -1,0 +1,51 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: ipc-creds
+  labels:
+    versionNo: 0.0.2
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: creds-icp
+        solution: creds-mcm
+        tier: backend
+        track: stable
+        role: web
+    spec:
+      imagePullSecrets:
+        - name: regsecret-creds
+      containers:
+        - name: creds-image-icp
+          image: 038180458258.dkr.ecr.eu-west-1.amazonaws.com/creds:latest
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 5000
+          env:
+            - name: BUILD_NUMBER
+              value: "0.0.1"
+            - name: POOL_ID
+              value: "eu-west-2_h8evgy0Xb"
+            - name: TARGET_ENV
+              value: "dev"
+            - name: LOG_LEVEL
+              value: "info"
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: credentials-secret
+                  key: "AWS_DEV_CREDS_KEY_ID"
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: credentials-secret
+                  key: "AWS_DEV_CREDS_KEY_SECRET"
+            - name: PRIVATE_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: credentials-secret
+                  key: "LP_PRIVATE_KEY_DEV"
+      

@@ -1,0 +1,29 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: ipc-monitoring
+  labels:
+    versionNo: 0.0.4
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: monitoring-icp
+        solution: monitoring-mcm
+        tier: backend
+        track: stable
+        role: web
+    spec:
+      imagePullSecrets:
+        - name: regsecret
+      containers:
+        - name: moniotoring-image-icp
+          image: icp-e526-console-62d49fd43e0570d3.elb.eu-west-2.amazonaws.com:8500/default/monitoring:latest
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 5000
+          env:
+            - name: TARGET_ENV
+              value: dev

@@ -1,0 +1,21 @@
+apiVersion: mcm.ibm.com/v1alpha1
+kind: PlacementPolicy
+metadata:
+  name: mynw-app
+  labels:
+    name: mynw-app
+    chart: mynw-app-0.0.1
+    hcmappname: "app"
+    app: mynw-app
+    release: mynw-app
+    heritage: mynw-app
+    servicekind: CacheService
+spec:
+  replicas: 1
+  clusterSelector:
+    matchLabels:
+     environment: Dev
+     datacenter: toronto
+  resourceSelector:
+    type: cpu
+    order: desc

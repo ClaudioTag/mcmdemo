@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: mynw-svc-creds
+  labels:
+    solution: monitoring-mcm
+spec:
+  selector:
+    app: creds-icp
+    tier: backend
+  ports:
+  - name: https
+    protocol: TCP
+    port: 5000
+    targetPort: 5000

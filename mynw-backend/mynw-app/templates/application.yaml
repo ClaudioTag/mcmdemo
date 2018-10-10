@@ -13,8 +13,12 @@ spec:
     - key: app
       operator: In
       values:
-      - mynw-monitoring
-      - mynw-creds
+      - mynw-monitoring-deployable
+      - mynw-monitoring-pp
+    - key: solution
+      operator: In
+      values:
+      - monitoring-mcm
   componentKinds:
   - group: core
     kind: Pods

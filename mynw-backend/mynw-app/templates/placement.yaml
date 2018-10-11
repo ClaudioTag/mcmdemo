@@ -4,12 +4,12 @@ metadata:
   name: mynw-app-pp
   labels:
     name: mynw-app
-    chart: mynw-app-0.0.3
+    chart: mynw-app-0.0.4
     hcmappname: "app"
     app: mynw-app
     release: mynw-app
     heritage: mynw-app
-    soltution: nynw-app-mcm
+    soltution: mynw-app-mcm
     servicekind: CacheService
 spec:
   replicas: 1

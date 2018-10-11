@@ -1,14 +1,15 @@
 apiVersion: mcm.ibm.com/v1alpha1
 kind: PlacementPolicy
 metadata:
-  name: mynw-app
+  name: mynw-app-pp
   labels:
     name: mynw-app
-    chart: mynw-app-0.0.2
+    chart: mynw-app-0.0.3
     hcmappname: "app"
     app: mynw-app
     release: mynw-app
     heritage: mynw-app
+    soltution: nynw-app-mcm
     servicekind: CacheService
 spec:
   replicas: 1

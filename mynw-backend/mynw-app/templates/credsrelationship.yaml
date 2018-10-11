@@ -1,8 +1,0 @@
-apiVersion: mcm.ibm.com/v1alpha1
-kind: ApplicationRelationship
-metadata:
-  name: mynw-creds
-  labels:
-    app: mynw-app
-    chart: mynw-creds-0.0.2
-    release: mynw-creds

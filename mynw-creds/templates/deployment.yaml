@@ -3,14 +3,14 @@ kind: Deployment
 metadata:
   name: ipc-creds
   labels:
-    versionNo: 0.0.2
+    versionNo: 0.0.3
 spec:
   replicas: 1
   template:
     metadata:
       labels:
         app: creds-icp
-        solution: creds-mcm
+        solution: mynw-app-mcm
         tier: backend
         track: stable
         role: web
@@ -48,4 +48,3 @@ spec:
                 secretKeyRef:
                   name: credentials-secret
                   key: "LP_PRIVATE_KEY_DEV"
-      

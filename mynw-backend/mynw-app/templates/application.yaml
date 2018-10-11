@@ -4,7 +4,7 @@ metadata:
   name: mynw-app
   labels:
     app: mynw-app
-    chart: mynw-app-0.0.2
+    chart: mynw-app-0.0.3
     release: mynw-app
     name: mynw-app
 spec:
@@ -13,12 +13,11 @@ spec:
     - key: app
       operator: In
       values:
-      - mynw-monitoring-deployable
-      - mynw-monitoring-pp
+      - mynw-app
     - key: solution
       operator: In
       values:
-      - monitoring-mcm
+      - nynw-app-mcm
   componentKinds:
   - group: core
     kind: Pods

@@ -9,5 +9,8 @@ metadata:
 spec:
   destination:
     kind: Deployable
-    name: mynw-monitoring
+    name: mynw-creds
   type: usesCreated
+  source:
+    kind: Deployable
+    name: mynw-monitoring

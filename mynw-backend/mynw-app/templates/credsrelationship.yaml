@@ -6,8 +6,3 @@ metadata:
     app: mynw-app
     chart: mynw-creds-0.0.2
     release: mynw-creds
-spec:
-  destination:
-    kind: Deployable
-    name: mynw-creds
-  type: usesCreated

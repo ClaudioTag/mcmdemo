@@ -8,6 +8,7 @@ metadata:
     release: mynw-monitoring
     name: mynw-monitoring
     servicekind: ApplicationService
+    placementPolicy: mynw-app
 spec:
   deployer:
     kind: helm

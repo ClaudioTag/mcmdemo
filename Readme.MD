@@ -33,9 +33,9 @@ $ kubectl create secret docker-registry regsecret-creds --docker-server=icp-e526
 - Package application: `helm package monitoring-mcm`
 - Upload chart to ICP hubcluster:
 ```
-$ cloudctl catalog load-chart --archive monitoring-mcm-<version number>.tgz
+$ cloudctl catalog load-chart --archive <chart name>-<version number>.tgz
 ```
 - Deploy chart from CLI:
 ```
-$ helm install monitoring-mcm-<version number>.tgz --name <release name> --tls
+$ helm install <chart name>-<version number>.tgz --name <release name> --tls
 ```

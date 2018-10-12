@@ -4,7 +4,7 @@ metadata:
   name: mynw-monitoring
   labels:
     app: mynw-app
-    chart: mynw-monitoring-0.0.6
+    chart: mynw-monitoring-0.0.7
     release: mynw-monitoring
     name: mynw-monitoring
     servicekind: ApplicationService
@@ -14,5 +14,5 @@ spec:
   deployer:
     kind: helm
     helm:
-      chartURL: https://raw.githubusercontent.com/ClaudioTag/mcmdemo/master/mynw-monitoring-0.0.6.tgz
+      chartURL: https://raw.githubusercontent.com/ClaudioTag/mcmdemo/master/mynw-monitoring-0.0.7.tgz
       namespace: default

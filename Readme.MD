@@ -20,9 +20,12 @@ $ kubectl edit pp <placement_policy_name>
 - Chart is not deployable from UI, but on Helm CLI
 
 ## How to build and deploy applications
-- Create secret to pull docker image from repo:
+- Create secrets to pull docker image from repo:
 ```
 $ kubectl create secret docker-registry regsecret --docker-server=icp-e526-console-62d49fd43e0570d3.elb.eu-west-2.amazonaws.com:8500/default/monitoring --docker-username=admin --docker-password=<admin token> --docker-email=test@mail.com
+```
+```
+$ kubectl create secret docker-registry regsecret-creds --docker-server=icp-e526-console-62d49fd43e0570d3.elb.eu-west-2.amazonaws.com:8500/default/monitoring --docker-username=admin --docker-password=<admin token> --docker-email=test@mail.com
 ```
 - Package components via `helm package` and upload them to this git repo
 - Point deployable files in `monitoring-mcm/templates` to the uploaded charts

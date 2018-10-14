@@ -1,7 +1,7 @@
 #MCM demo
 
 ## Clusters
-- Hubcluster: https://184.172.241.11:8443/hcmconsole/
+- Hubcluster: https://158.176.105.236:8443/hcmconsole/
 - AWS cluster: https://icp-e526-console-62d49fd43e0570d3.elb.eu-west-2.amazonaws.com:8443
 
 ## How to demo

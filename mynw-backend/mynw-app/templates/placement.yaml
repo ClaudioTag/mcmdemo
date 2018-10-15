@@ -4,7 +4,7 @@ metadata:
   name: mynw-app-pp
   labels:
     name: mynw-app
-    chart: mynw-app-0.0.5
+    chart: mynw-app-0.0.6
     hcmappname: "app"
     app: mynw-app
     release: mynw-app
@@ -16,7 +16,7 @@ spec:
   clusterSelector:
     matchLabels:
      environment: Dev
-     datacenter: toronto
+     datacenter: london
   resourceSelector:
     type: cpu
     order: desc

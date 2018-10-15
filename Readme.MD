@@ -15,8 +15,12 @@ $ helm install <chart name>-<version number>.tgz --name <release name> --tls
 $ kubectl edit pp <placement_policy_name>
 ```
 - Show application view" https://158.176.105.236:8443/hcmconsole/applications/default/mynw-monitoring/topology
-- Ping ingress on hubcluster: https://158.176.105.236/monitoring-mcm/
-- Ping ingress on awscluster: https://icp-e526-proxy-c1a3ab0c1291f594.elb.eu-west-2.amazonaws.com/monitoring-mcm
+- Ping ingresses on hubcluster:
+  - https://158.176.105.236/monitoring
+  - https://158.176.105.236/creds
+- Ping ingresses on awscluster:    
+ - https://icp-e526-proxy-c1a3ab0c1291f594.elb.eu-west-2.amazonaws.com/monitoring
+ - https://icp-e526-proxy-c1a3ab0c1291f594.elb.eu-west-2.amazonaws.com/creds
 
 ## To-do
 - Add application components to MCM application

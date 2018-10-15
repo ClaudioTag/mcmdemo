@@ -21,7 +21,7 @@ $ kubectl edit pp <placement_policy_name>
 ## To-do
 - Add application components to MCM application
 - Chart is not deployable from UI, but on Helm CLI
-- Mvoe images from AWS docker to ICP docker registry on 158.176.105.236
+- Move images from AWS docker to ICP docker registry on 158.176.105.236
 
 ## How to build and deploy applications
 - Create secrets to pull docker image from repo:

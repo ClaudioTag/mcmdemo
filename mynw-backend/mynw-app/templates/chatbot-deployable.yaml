@@ -1,0 +1,18 @@
+apiVersion: mcm.ibm.com/v1alpha1
+kind: Deployable
+metadata:
+  name: mynw-chatbot
+  labels:
+    app: mynw-app
+    chart: mynw-chatbot-0.0.1
+    release: mynw-chatbot
+    name: mynw-chatbot
+    servicekind: ApplicationService
+    placementPolicy: mynw-app-pp
+    soltution: mynw-app-mcm
+spec:
+  deployer:
+    kind: helm
+    helm:
+      chartURL: https://raw.githubusercontent.com/ClaudioTag/mcmdemo/master/mynw-chatbot-0.0.1.tgz
+      namespace: default

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: gateway-icp
+  name: gateway-icp
+spec:
+  ports:
+  - protocol: TCP
+    port: {{ .Values.PORT }}
+    targetPort: gateway-port
+  selector:
+    app: gateway-icp
+

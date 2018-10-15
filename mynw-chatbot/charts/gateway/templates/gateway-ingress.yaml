@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: gateway-icp
+spec:
+  rules:
+  - host: {{ .Values.INGRESS_HOST }}
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: gateway-icp
+          servicePort: {{ .Values.PORT }}
+      - path: /api/v1/userPrefs/get
+        backend:
+          serviceName: gateway-icp
+          servicePort: {{ .Values.PORT }}
+      - path: /api/v1/userPrefs/set
+        backend:
+          serviceName: gateway-icp
+          servicePort: {{ .Values.PORT }}
+      - path: /status
+        backend:
+          serviceName: gateway-icp
+          servicePort: {{ .Values.PORT }}

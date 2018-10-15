@@ -1,0 +1,53 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: gateway-icp
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+  name: gateway-icp
+status: {}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: gateway-icp
+        role: service
+    spec:
+    {{- if ne .Values.global.cluster_name "unset" }}
+      nodeSelector:
+        environment: {{ .Values.global.cluster_name }}
+      tolerations:
+      - effect: NoSchedule
+        key: environment
+        operator: Equal
+        value: {{ .Values.global.cluster_name }}
+    {{ end }}
+      restartPolicy: Always
+{{- if .Values.global.dockerSecret }}
+{{ toYaml .Values.global.dockerSecret | indent 6 }}
+{{- end }}
+      containers:
+      - args:
+        - npm
+        - run
+        - start:gateway
+        image: "{{ .Values.image_repository }}:{{ .Values.image_tag }}"
+        imagePullPolicy: Always
+        name: gateway-icp
+        livenessProbe:
+          initialDelaySeconds: 60
+          periodSeconds: 15
+          httpGet:
+            path: /status
+            port: gateway-port
+        ports:
+        - name: gateway-port
+          containerPort: {{ .Values.PORT }}
+        resources: {}
+        workingDir: /app
+        env:
+{{ toYaml .Values.envVariables | indent 10 }}

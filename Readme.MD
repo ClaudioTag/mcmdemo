@@ -14,7 +14,7 @@ $ helm install <chart name>-<version number>.tgz --name <release name> --tls
 ```
 $ kubectl edit pp <placement_policy_name>
 ```
-- Show application view" https://158.176.105.236:8443/hcmconsole/applications/default/mynw-monitoring/topology
+- Show application view: https://158.176.105.236:8443/hcmconsole/applications/default/mynw-app/topology
 - Ping ingresses on hubcluster:
   - https://158.176.105.236/monitoring
   - https://158.176.105.236/creds

@@ -18,9 +18,9 @@ $ kubectl edit pp <placement_policy_name>
 - Ping ingresses on hubcluster:
   - https://158.176.105.236/monitoring
   - https://158.176.105.236/creds
-- Ping ingresses on awscluster:    
- - https://icp-e526-proxy-c1a3ab0c1291f594.elb.eu-west-2.amazonaws.com/monitoring
- - https://icp-e526-proxy-c1a3ab0c1291f594.elb.eu-west-2.amazonaws.com/creds
+- Ping ingresses on awscluster:
+  - https://icp-e526-proxy-c1a3ab0c1291f594.elb.eu-west-2.amazonaws.com/monitoring
+  - https://icp-e526-proxy-c1a3ab0c1291f594.elb.eu-west-2.amazonaws.com/creds
 
 ## To-do
 - Add application components to MCM application

@@ -1,0 +1,17 @@
+apiVersion: mcm.ibm.com/v1alpha1
+kind: ApplicationRelationship
+metadata:
+  name: mynw-redis 
+  labels:
+    app: mynw-app
+    chart: mynw-redis-1.1.11
+    release: mynw-redis
+    soltution: mynw-app-mcm
+spec:
+  destination:
+    kind: Deployable
+    name: mynw-redis
+  type: usesCreated
+  source:
+    kind: Deployable
+    name: mynw-monitoring

@@ -24,10 +24,6 @@ If release name contains chart name it will be used as a full name.
 {{- end -}}
 {{- end -}}
 
-{{- define "gateway.fullname"}}
-{{- printf "%s-%s" .Release.Name "gateway"| trunc 63 | trimSuffix "-" -}}
-{{- end -}}
-
 {{- define "bot.fullname"}}
 {{- printf "%s-%s" .Release.Name "bot"| trunc 63 | trimSuffix "-" -}}
 {{- end -}}

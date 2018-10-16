@@ -1,0 +1,54 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: chatbot-icp
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+  name: chatbot-icp
+status: {}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: chatbot-icp
+        role: service
+    spec:
+    {{- if ne .Values.global.cluster_name "unset" }}
+      nodeSelector:
+        environment: {{ .Values.global.cluster_name }}
+      tolerations:
+      - effect: NoSchedule
+        key: environment
+        operator: Equal
+        value: {{ .Values.global.cluster_name }}
+    {{ end }}
+      restartPolicy: Always
+{{- if .Values.global.dockerSecret }}
+{{ toYaml .Values.global.dockerSecret | indent 6 }}
+{{- end }}
+      containers:
+      - args:
+        - npm
+        - run
+        - start:bot
+        image: "{{ .Values.image_repository }}:{{ .Values.image_tag }}"
+        imagePullPolicy: Always
+        name: chatbot-icp
+        livenessProbe:
+          timeoutSeconds: 2
+          initialDelaySeconds: 65
+          periodSeconds: 15
+          httpGet:
+            path: /status?deps=true
+            port: bot-port
+        ports:
+        - name: bot-port
+          containerPort: {{ .Values.PORT }}
+        resources: {}
+        workingDir: /app
+        env:
+{{ toYaml .Values.envVariables | indent 10 }}

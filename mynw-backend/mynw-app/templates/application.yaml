@@ -4,7 +4,7 @@ metadata:
   name: mynw-app
   labels:
     app: mynw-app
-    chart: mynw-app-0.0.6
+    chart: mynw-app-0.0.7
     release: mynw-app
     name: mynw-app
 spec:
@@ -16,6 +16,9 @@ spec:
       - mynw-app
       - creds-icp
       - monitoring-icp
+      - chatbot-icp
+      - gateway-icp
+      - redis-icp
     - key: solution
       operator: In
       values:

@@ -1,0 +1,18 @@
+apiVersion: mcm.ibm.com/v1alpha1
+kind: Deployable
+metadata:
+  name: mynw-gateway
+  labels:
+    app: mynw-app
+    chart: mynw-gateway-0.0.1
+    release: mynw-gateway
+    name: mynw-gateway
+    servicekind: ApplicationService
+    placementPolicy: mynw-app-pp
+    soltution: mynw-app-mcm
+spec:
+  deployer:
+    kind: helm
+    helm:
+      chartURL: https://raw.githubusercontent.com/ClaudioTag/mcmdemo/master/mynw-gateway-0.0.1.tgz
+      namespace: default

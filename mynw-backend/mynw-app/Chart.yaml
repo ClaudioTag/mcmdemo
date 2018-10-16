@@ -2,4 +2,4 @@ apiVersion: v1
 appVersion: "1.0"
 description: A Helm chart to deploy overall MCM
 name: mynw-app
-version: 0.0.6
+version: 0.0.7

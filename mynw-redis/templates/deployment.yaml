@@ -21,15 +21,6 @@ spec:
 {{ toYaml .Values.podAnnotations | indent 8 }}
       {{- end }}
     spec:
-    {{- if ne .Values.global.cluster_name "unset" }}
-      nodeSelector:
-        environment: {{ .Values.global.cluster_name }}
-      tolerations:
-      - effect: NoSchedule
-        key: environment
-        operator: Equal
-        value: {{ .Values.global.cluster_name }}
-    {{ end }}
       initContainers:
       - name: "fix-permissions"
         image: "busybox"
@@ -112,7 +103,7 @@ spec:
       - name: redis-data
       {{- if .Values.persistence.enabled }}
         persistentVolumeClaim:
-          claimName: {{ .Values.persistence.existingClaim | default (include "redis.fullname" .) }}
+          claimName: redis-icp
       {{- else }}
         emptyDir: {}
       {{- end -}}

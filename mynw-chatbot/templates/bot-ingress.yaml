@@ -4,8 +4,7 @@ metadata:
   name: chatbot-icp
 spec:
   rules:
-  - host: {{ .Values.INGRESS_HOST }}
-    http:
+  - http:
       paths:
       - path: /
         backend:

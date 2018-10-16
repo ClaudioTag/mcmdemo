@@ -17,19 +17,9 @@ spec:
         app: chatbot-icp
         role: service
     spec:
-    {{- if ne .Values.global.cluster_name "unset" }}
-      nodeSelector:
-        environment: {{ .Values.global.cluster_name }}
-      tolerations:
-      - effect: NoSchedule
-        key: environment
-        operator: Equal
-        value: {{ .Values.global.cluster_name }}
-    {{ end }}
+      imagePullSecrets:
+        - name: regsecret-chatbot
       restartPolicy: Always
-{{- if .Values.global.dockerSecret }}
-{{ toYaml .Values.global.dockerSecret | indent 6 }}
-{{- end }}
       containers:
       - args:
         - npm

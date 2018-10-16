@@ -2,10 +2,11 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: gateway-icp
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: {{ .Values.INGRESS_HOST }}
-    http:
+  - http:
       paths:
       - path: /
         backend:

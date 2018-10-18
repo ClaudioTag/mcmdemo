@@ -9,7 +9,7 @@ metadata:
     app: mynw-app
     release: mynw-app
     heritage: mynw-app
-    soltution: mynw-app-mcm
+    solution: mynw-app-mcm
     servicekind: CacheService
 spec:
   replicas: 1

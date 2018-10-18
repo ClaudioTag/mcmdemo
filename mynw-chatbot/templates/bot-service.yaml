@@ -4,7 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: chatbot-icp
-    soltution: mynw-app-mcm
+    solution: mynw-app-mcm
   name: chatbot-icp
 spec:
   ports:

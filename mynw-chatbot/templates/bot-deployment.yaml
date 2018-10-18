@@ -5,7 +5,7 @@ metadata:
     app: chatbot-icp
     chart: "chatbot-icp-0.0.1"
     release: mynw-chatbot
-    soltution: mynw-app-mcm
+    solution: mynw-app-mcm
   name: chatbot-icp
 status: {}
 spec:
@@ -17,7 +17,7 @@ spec:
       labels:
         app: chatbot-icp
         role: service
-        soltution: mynw-app-mcm
+        solution: mynw-app-mcm
     spec:
       imagePullSecrets:
         - name: regsecret-chatbot

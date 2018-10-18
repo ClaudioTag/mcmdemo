@@ -6,7 +6,7 @@ metadata:
     app: mynw-app
     chart: mynw-redis-1.1.11
     release: mynw-redis
-    soltution: mynw-app-mcm
+    solution: mynw-app-mcm
 spec:
   destination:
     kind: Deployable

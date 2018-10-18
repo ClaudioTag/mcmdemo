@@ -9,7 +9,7 @@ metadata:
     name: mynw-monitoring
     servicekind: ApplicationService
     placementPolicy: mynw-app-pp
-    soltution: mynw-app-mcm
+    solution: mynw-app-mcm
 spec:
   deployer:
     kind: helm

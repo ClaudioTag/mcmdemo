@@ -16,7 +16,7 @@ spec:
       labels:
         app: gateway-icp
         role: service
-        soltution: mynw-app-mcm
+        solution: mynw-app-mcm
     spec:
       imagePullSecrets:
         - name: regsecret-chatbot

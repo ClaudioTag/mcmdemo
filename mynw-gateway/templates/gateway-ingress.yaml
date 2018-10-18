@@ -11,16 +11,16 @@ spec:
       - path: /
         backend:
           serviceName: gateway-icp
-          servicePort: {{ .Values.PORT }}
+          servicePort: 80
       - path: /api/v1/userPrefs/get
         backend:
           serviceName: gateway-icp
-          servicePort: {{ .Values.PORT }}
+          servicePort: 80
       - path: /api/v1/userPrefs/set
         backend:
           serviceName: gateway-icp
-          servicePort: {{ .Values.PORT }}
+          servicePort: 80
       - path: /status
         backend:
           serviceName: gateway-icp
-          servicePort: {{ .Values.PORT }}
+          servicePort: 80

@@ -8,7 +8,7 @@ metadata:
 spec:
   ports:
   - protocol: TCP
-    port: {{ .Values.PORT }}
+    port: 80
     targetPort: gateway-port
   selector:
     app: gateway-icp

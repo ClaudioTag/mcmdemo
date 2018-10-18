@@ -8,7 +8,7 @@ metadata:
 spec:
   ports:
   - protocol: TCP
-    port: {{ .Values.PORT }}
+    port: 8044
     targetPort: bot-port
   selector:
     app: chatbot-icp

@@ -3,12 +3,12 @@ kind: Deployment
 metadata:
   labels:
     app: chatbot-icp
-    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
-    release: "{{ .Release.Name }}"
+    chart: "chatbot-icp-0.0.1"
+    release: mynw-chatbot
   name: chatbot-icp
 status: {}
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: 1
   strategy:
     type: Recreate
   template:
@@ -25,7 +25,7 @@ spec:
         - npm
         - run
         - start:bot
-        image: "{{ .Values.image_repository }}:{{ .Values.image_tag }}"
+        image: 038180458258.dkr.ecr.eu-west-1.amazonaws.com/chatbot:latest
         imagePullPolicy: Always
         name: chatbot-icp
         livenessProbe:
@@ -37,8 +37,239 @@ spec:
             port: bot-port
         ports:
         - name: bot-port
-          containerPort: {{ .Values.PORT }}
+          containerPort: 8044
         resources: {}
         workingDir: /app
         env:
-{{ toYaml .Values.envVariables | indent 10 }}
+          - name: SPACE
+            value: 'nwl'
+          - name: ENV
+            value: 'mynw-mcm'
+          - name: BUILD
+            value: 'bot'
+          - name: ENABLED
+            value: 'true'
+          - name: PORT
+            value: '8044'
+          - name: CF_INSTANCE_INDEX
+            value: '0'
+          - name: BLUEBIRD_DEBUG
+            value: 'true'
+          - name: DEBUG
+            value: 'nationwidechatbot:*,-nationwidechatbot:fulfill*,-nationwidechatbot:fulfill*,-nationwidechatbot:enrich*,-nationwidechatbot:aca-core-button*,-nationwidechatbot:aca-button*,-nationwidechatbot:lp-data-loader,-nationwidechatbot:conversation-wcs-workspaces*,-nationwidechatbot:tag-replace'
+          - name: MAX_TYPING_COUNT
+            value: '5'
+          - name: CONCAT_DELAY
+            value: '250'
+          - name: FEATURES_ENABLED
+            value: 'true'
+          - name: HANDOVER_ENABLED
+            value: 'true'
+          - name: HANDOVER_MAX_RETRY_COUNT
+            value: '9'
+          - name: HANDOVER_RETRY_TIMEOUT
+            value: '2000'
+          - name: HANDOVER_DEFAULT_CHANNEL_ERROR
+            value: 'Sorry, this channel does not support transfer.'
+          - name: HANDOVER_DEFAULT_TRANSFER_ERROR
+            value: 'Sorry, it’s taking a bit longer than usual to connect you to one of the team. Hold tight and someone will be with you soon. '
+          - name: HANDOVER_SKILL_MISMATCH_ERROR
+            value: 'Really sorry, there’s nobody free to talk right now. Please pop back later and try again.'
+          - name: HANDOVER_DEFAULT_TRANSFER_SKILL
+            value: 'transferDemoSkill'
+          - name: FAIL_ENABLED
+            value: 'true'
+          - name: FAIL_MAX_RETRY_COUNT
+            value: '3'
+          - name: FAIL_DEFAULT_SKILL
+            value: 'transferDemoSkill'
+          - name: FAIL_DEFAULT_MESSAGE
+            value: 'Sorry, I’m not quite sure what you mean. I’ll just pass you over to one of the team who’ll be able to help you. <pause/>'
+          - name: FAIL_DEFAULT_HANDOVER_MESSAGE
+            value: 'Sorry, I’m not quite sure what you mean. I’ll just pass you over to one of the team who’ll be able to help you.'
+          - name: SOCKETIO_ENABLED
+            value: 'false'
+          - name: SOCKETIO_ID
+            value: 'nw'
+          - name: SOCKETIO_REQUIRE_ROLE
+            value: 'botmaster-dev1'
+          - name: SOCKETIO_AUTH_PROVIDER_HOST
+            value: 'https://nationwide-admin-test.eu-gb.mybluemix.net/api/auth'
+          - name: GATEWAY_CLIENT_ENABLED
+            value: 'true'
+          - name: GATEWAY_CLIENT_URL
+            value: 'http://gateway-icp'
+          - name: GATEWAY_CLIENT_AUTH_ENDPOINT
+            value: 'http://gateway-icp/auth'
+          - name: GATEWAY_CLIENT_AUTH_APP_ID
+            value: 'nationwide-dev-bot'
+          - name: GATEWAY_CLIENT_AUTH_SECRET
+            valueFrom:
+                secretKeyRef:
+                  name: chatbot-secret
+                  key: "GATEWAY_CLIENT_AUTH_SECRET"
+          - name: GATEWAY_CLIENT_STRICT_SSL
+            value: 'false'
+          - name: LIVEPERSON_ASYNC_ENABLED
+            value: 'true'
+          - name: LIVEPERSON_ASYNC_ACCOUNT
+            valueFrom:
+                secretKeyRef:
+                  name: chatbot-secret
+                  key: "LIVEPERSON_ASYNC_ACCOUNT"
+          - name: LIVEPERSON_ASYNC_BOT_0_USERNAME
+            value: 'botmcm'
+          - name: LIVEPERSON_ASYNC_BOT_0_PASSWORD
+            valueFrom:
+                secretKeyRef:
+                  name: chatbot-secret
+                  key: "LIVEPERSON_ASYNC_BOT_0_PASSWORD"
+          - name: LIVEPERSON_ASYNC_SHARED_CONFIG_ENABLED
+            value: 'true'
+          - name: LIVEPERSON_ASYNC_SHARED_CONFIG_LOCK_TTL
+            value: '5000'
+          - name: LIVEPERSON_ASYNC_SHARED_CONFIG_RETRY_DELAY
+            value: '60000'
+          - name: LIVEPERSON_ASYNC_SHARED_CONFIG_EXTEND_DELAY
+            value: '3000'
+          - name: LIVEPERSON_ASYNC_STAY_IN_CONV_TILL_PICKUP
+            value: 'true'
+          - name: LIVEPERSON_API_ENABLED
+            value: 'true'
+          - name: LIVEPERSON_API_KEY
+            valueFrom:
+                secretKeyRef:
+                  name: chatbot-secret
+                  key: "LIVEPERSON_API_KEY"
+          - name: LIVEPERSON_API_SECRET
+            valueFrom:
+                secretKeyRef:
+                  name: chatbot-secret
+                  key: "LIVEPERSON_API_SECRET"
+          - name: LIVEPERSON_API_TOKEN
+            valueFrom:
+                secretKeyRef:
+                  name: chatbot-secret
+                  key: "LIVEPERSON_API_TOKEN"
+          - name: LIVEPERSON_API_TOKEN_SECRET
+            valueFrom:
+                secretKeyRef:
+                  name: chatbot-secret
+                  key: "LIVEPERSON_API_TOKEN_SECRET"
+          - name: SESSION_ENABLED
+            value: 'true'
+          - name: SESSION_TYPE
+            value: 'cache'
+          - name: SESSION_EXPIRATION
+            value: '259200'
+          - name: REDIS_ENABLED
+            value: 'true'
+          - name: REDIS_URI
+            value: 'redis://redis-icp:6379'
+          - name: REDIS_ENCRYPT_ENABLED
+            value: 'false'
+          - name: REDIS_ENCRYPT_KEY
+            value: '0e025858db3ac8153de7a849af6a2447e65be6dac40de919c4f76eed17150ec1'
+          - name: REDIS_ENCRYPT_HMAC_KEY
+            value: '6b13e5f29559389c7643a6d52fd082fcec9bb13a024d4022eb2e53c5ed296864'
+          - name: REDIS_PASSWORD
+            valueFrom:
+                secretKeyRef:
+                  name: chatbot-secret
+                  key: "REDIS_PASSWORD"
+          - name: DIALOG_ENABLED
+            value: 'true'
+          - name: DIALOG_TYPE
+            value: 'wcs'
+          - name: WCS_ENABLED
+            value: 'true'
+          - name: WCS_USERNAME
+            valueFrom:
+                secretKeyRef:
+                  name: chatbot-secret
+                  key: "WCS_USERNAME"
+          - name: WCS_PASSWORD
+            valueFrom:
+                secretKeyRef:
+                  name: chatbot-secret
+                  key: "WCS_PASSWORD"
+          - name: WCS_URL
+            value: 'https://gateway.watsonplatform.net/assistant/api'
+          - name: WCS_VERSION_DATE
+            value: '2017-02-03'
+          - name: WCS_WORKSPACE_NAME
+            value: 'Concierge'
+          - name: WCS_POLLER_INTERVAL
+            value: '45000'
+          - name: WCS_DEFAULT_UNAVAILABLE_MESSAGE
+            value: 'I am so sorry I had a technical error. I will hand you over now <handover skill=transferDemoSkill />'
+          - name: WCS_LOOP_HANDOVER
+            value: 'I am so sorry, I had a technical error and can not reply to your message.'
+          - name: WCS_TIMEZONE
+            value: 'Europe/London'
+          - name: SUGGEST_ENTITIES_ENABLED
+            value: 'false'
+          - name: LOW_CONFIDENCE_WARE_ENABLED
+            value: 'true'
+          - name: LOW_CONFIDENCE_WARE_MIN_CONFIDENCE
+            value: '0.49'
+          - name: LOW_CONFIDENCE_WARE_MAX_RETRY_COUNT
+            value: '1'
+          - name: LOW_CONFIDENCE_WARE_RETRY_MESSAGE
+            value: 'Hmm... I don’t think I understand. Could you try saying that in a different way?'
+          - name: LOW_CONFIDENCE_WARE_DEFAULT_MESSAGE
+            value: 'I’m sorry but I’m still not sure about this. I can connect you to a human who could answer your question <pause/>'
+          - name: LOW_CONFIDENCE_WARE_HANDOVER_SKILL
+            value: 'transferDemoSkill'
+          - name: BLACKLIST_ENABLED
+            value: 'true'
+          - name: BLACKLIST_ENTITY_NAME
+            value: 'blacklist'
+          - name: BLACKLIST_MAX_FAIL_COUNT
+            value: '1'
+          - name: BLACKLIST_COUNTER_NAME
+            value: 'blacklistFails'
+          - name: BLACKLIST_HANDOVER_MESSAGE
+            value: 'I’m sorry but I prefer to transfer you to an agent at this point.'
+          - name: BLACKLIST_DEFAULT_MESSAGE
+            value: 'Sorry I’m not sure I understood you correctly, could you please try again?'
+          - name: BLACKLIST_TRANSFER_SKILL
+            value: 'transferDemoSkill'
+          - name: PRIMARY_AGENT_ENABLED
+            value: 'true'
+          - name: PRIMARY_AGENT_GENERAL_SKILL
+            value: 'transferDemoSkill'
+          - name: PRIMARY_AGENT_SKILL_PLACEHOLDER
+            value: 'PRIMARY'
+          - name: PRIMARY_AGENT_MAX_LOAD
+            value: '99'
+          - name: CAROUSEL_ENABLED
+            value: 'true'
+          - name: CAROUSEL_NO_BUTTON_DEFAULT_MESSAGE
+            value: 'Go to our website to find out more'
+          - name: CORS_ENABLED
+            value: 'true'
+          - name: CORS_WHITELIST
+            value: 'https://nationwide-admin-test.mybluemix.net'
+          - name: CONV_LOG_CHECK_ENABLED
+            value: 'false'
+          - name: CONVERSATION_LOGGING_WARE_ENABLED
+            value: 'false'
+          - name: MAX_TYPING_COUNT
+            value: '4'
+          - name: CONCAT_DELAY
+            value: '150'
+          - name: LOGGING_METRICS_ENABLED
+            value: 'true'
+          - name: DISAMBIGUATION_WARE_ENABLED
+            value: 'false'
+          - name: TONE_ANALYZER_ENABLED
+            value: 'false'
+          - name: LOG_DISABLE_PINO_DEBUG
+            value: 'true'
+          - name: MORTGAGE_RATES_ENABLED
+            value: 'true'
+          - name: MORTGAGE_RATES_URL
+            value: 'https://www.nationwide.co.uk/services/toolservice.svc/GetMortgageSelectorRates'
+          - name: MORTGAGE_RATES_BUTTON_TITLE
+            value: More info and apply

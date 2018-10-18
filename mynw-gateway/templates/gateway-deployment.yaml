@@ -3,13 +3,13 @@ kind: Deployment
 metadata:
   labels:
     app: gateway-icp
-    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
-    release: "{{ .Release.Name }}"
+    chart: "gateway-icp-0.0.1"
+    release: "mynw-gateway"
     soltution: mynw-app-mcm
   name: gateway-icp
 status: {}
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: 1
   strategy:
     type: Recreate
   template:
@@ -27,7 +27,7 @@ spec:
         - npm
         - run
         - start:gateway
-        image: "{{ .Values.image_repository }}:{{ .Values.image_tag }}"
+        image: 038180458258.dkr.ecr.eu-west-1.amazonaws.com/chatbot:latest
         imagePullPolicy: Always
         name: gateway-icp
         livenessProbe:
@@ -38,8 +38,80 @@ spec:
             port: gateway-port
         ports:
         - name: gateway-port
-          containerPort: {{ .Values.PORT }}
+          containerPort: 80
         resources: {}
         workingDir: /app
         env:
-{{ toYaml .Values.envVariables | indent 10 }}
+          - name: SPACE
+            value: 'nationwide'
+          - name: ENV
+            value: 'mynw-dev'
+          - name: BUILD
+            value: 'gateway'
+          - name: ENABLED
+            value: 'true'
+          - name: PORT
+            value: '80'
+          - name: BLUEBIRD_DEBUG
+            value: 'true'
+          - name: DEBUG
+            value: 'nationwideapigateway:*'
+          - name: MAX_TYPING_COUNT
+            value: '5'
+          - name: CONCAT_DELAY
+            value: '250'
+          - name: FEATURES_ENABLED
+            value: 'true'
+          - name: GATEWAY_ENABLED
+            value: 'true'
+          - name: GATEWAY_SERVER_SECRET
+            valueFrom:
+                secretKeyRef:
+                  name: gateway-secret
+                  key: "GATEWAY_SERVER_SECRET"
+          - name: GATEWAY_AUTH_DB_SUBJECT_0_APP_ID
+            value: 'nationwide-dev-bot'
+          - name: GATEWAY_AUTH_DB_SUBJECT_0_SECRET
+            valueFrom:
+                secretKeyRef:
+                  name: gateway-secret
+                  key: "GATEWAY_AUTH_DB_SUBJECT_0_SECRET"
+          - name: REDIS_ENABLED
+            value: 'true'
+          - name: REDIS_URI
+            value: 'redis://redis-icp:6379'
+          - name: REDIS_ENCRYPT_ENABLED
+            value: 'false'
+          - name: REDIS_ENCRYPT_KEY
+            value: '0e025858db3ac8153de7a849af6a2447e65be6dac40de919c4f76eed17150ec1'
+          - name: REDIS_ENCRYPT_HMAC_KEY
+            value: '6b13e5f29559389c7643a6d52fd082fcec9bb13a024d4022eb2e53c5ed296864'
+          - name: REDIS_PASSWORD
+            valueFrom:
+                secretKeyRef:
+                  name: gateway-secret
+                  key: "REDIS_PASSWORD"
+          - name: USERPREFS_ENABLED
+            value: 'true'
+          - name: USER_PREFS_URL
+            value: 'https://userprefs-mynw-dev.notprod.thenbs.io/admin'
+          - name: USER_PREFS_ISS
+            valueFrom:
+                secretKeyRef:
+                  name: gateway-secret
+                  key: "USER_PREFS_ISS"
+          - name: USER_PREFS_CERTIFICATE
+            valueFrom:
+                secretKeyRef:
+                  name: gateway-secret
+                  key: "USER_PREFS_CERTIFICATE"
+          - name: LOGGING_METRICS_ENABLED
+            value: 'true'
+          - name: LOG_DISABLE_PINO_DEBUG
+            value: 'true'
+          - name: MORTGAGE_RATES_ENABLED
+            value: 'true'
+          - name: MORTGAGE_RATES_URL
+            value: 'https://www.nationwide.co.uk/services/toolservice.svc/GetMortgageSelectorRates'
+          - name: MORTGAGE_RATES_BUTTON_TITLE
+            value: More info and apply

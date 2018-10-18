@@ -9,8 +9,8 @@ spec:
       - path: /
         backend:
           serviceName: chatbot-icp
-          servicePort: {{ .Values.PORT }}
+          servicePort: 8044
       - path: /status
         backend:
           serviceName: chatbot-icp
-          servicePort: {{ .Values.PORT }}
+          servicePort: 8044

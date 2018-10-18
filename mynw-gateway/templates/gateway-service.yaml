@@ -4,6 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: gateway-icp
+    soltution: mynw-app-mcm
   name: gateway-icp
 spec:
   ports:
@@ -12,4 +13,3 @@ spec:
     targetPort: gateway-port
   selector:
     app: gateway-icp
-

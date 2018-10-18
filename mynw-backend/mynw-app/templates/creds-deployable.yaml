@@ -8,10 +8,10 @@ metadata:
     release: mynw-creds
     name: mynw-creds
     servicekind: ApplicationService
-    soltution: mynw-app-mcm
+    solution: mynw-app-mcm
 spec:
   deployer:
     kind: helm
     helm:
-      chartURL: https://raw.githubusercontent.com/ClaudioTag/mcmdemo/master/mynw-creds-0.0.3.tgz
+      chartURL: https://raw.githubusercontent.com/ClaudioTag/mcmdemo/master/mynw-creds-0.0.4.tgz
       namespace: default

@@ -6,7 +6,7 @@ metadata:
     app: mynw-app
     chart: mynw-chatbot-0.0.1
     release: mynw-chatbot
-    soltution: mynw-app-mcm
+    solution: mynw-app-mcm
 spec:
   destination:
     kind: Deployable

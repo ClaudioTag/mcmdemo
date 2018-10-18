@@ -6,7 +6,7 @@ metadata:
     app: mynw-app
     chart: mynw-gateway-0.0.1
     release: mynw-gateway
-    soltution: mynw-app-mcm
+    solution: mynw-app-mcm
 spec:
   destination:
     kind: Deployable

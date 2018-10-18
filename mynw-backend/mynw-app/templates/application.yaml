@@ -17,8 +17,6 @@ spec:
       - creds-icp
       - monitoring-icp
       - chatbot-icp
-      - gateway-icp
-      - redis-icp
     - key: solution
       operator: In
       values:

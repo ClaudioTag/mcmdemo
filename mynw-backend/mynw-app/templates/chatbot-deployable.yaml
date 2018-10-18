@@ -9,10 +9,10 @@ metadata:
     name: mynw-chatbot
     servicekind: ApplicationService
     placementPolicy: mynw-app-pp
-    soltution: mynw-app-mcm
+    solution: mynw-app-mcm
 spec:
   deployer:
     kind: helm
     helm:
-      chartURL: https://raw.githubusercontent.com/ClaudioTag/mcmdemo/master/mynw-chatbot-0.0.1.tgz
+      chartURL: https://raw.githubusercontent.com/ClaudioTag/mcmdemo/master/mynw-chatbot-0.0.2.tgz
       namespace: default

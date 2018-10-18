@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: ipc-creds
   labels:
+    solution: mynw-app-mcm
     versionNo: 0.0.3
 spec:
   replicas: 1

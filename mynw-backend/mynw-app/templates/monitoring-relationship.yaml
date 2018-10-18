@@ -6,7 +6,7 @@ metadata:
     app: mynw-app
     chart: mynw-monitoring-0.0.7
     release: mynw-monitoring
-    soltution: mynw-app-mcm
+    solution: mynw-app-mcm
 spec:
   destination:
     kind: Deployable

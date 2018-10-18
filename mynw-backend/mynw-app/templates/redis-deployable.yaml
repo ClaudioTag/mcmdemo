@@ -10,9 +10,9 @@ metadata:
     servicekind: ApplicationService
     placementPolicy: mynw-app-pp
     soltution: mynw-app-mcm
-spec:
-  deployer:
-    kind: helm
-    helm:
-      chartURL: https://raw.githubusercontent.com/ClaudioTag/mcmdemo/master/mynw-redis-1.1.11.tgz
-      namespace: default
+#spec:
+#  deployer:
+#    kind: helm
+#    helm:
+#      chartURL: https://raw.githubusercontent.com/ClaudioTag/mcmdemo/master/mynw-redis-1.1.11.tgz
+#      namespace: default

@@ -16,7 +16,7 @@ spec:
   clusterSelector:
     matchLabels:
      environment: Dev
-     datacenter: london
+     datacenter: toronto
   resourceSelector:
     type: cpu
     order: desc

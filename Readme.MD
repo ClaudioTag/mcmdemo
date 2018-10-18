@@ -1,7 +1,7 @@
 #MCM demo
 
 ## Clusters
-- Hubcluster: https://158.176.105.236:8443/hcmconsole/
+- Hubcluster: https://184.172.241.11:8443/hcmconsole/
 - AWS cluster: https://icp-e526-console-62d49fd43e0570d3.elb.eu-west-2.amazonaws.com:8443
 
 ## How to demo
@@ -14,10 +14,10 @@ $ helm install <chart name>-<version number>.tgz --name <release name> --tls
 ```
 $ kubectl edit pp <placement_policy_name>
 ```
-- Show application view: https://158.176.105.236:8443/hcmconsole/applications/default/mynw-app/topology
+- Show application view: https://184.172.241.11:8443/hcmconsole/applications/default/mynw-app/topology
 - Ping ingresses on hubcluster:
-  - https://158.176.105.236/monitoring
-  - https://158.176.105.236/creds
+  - https://184.172.241.11/monitoring
+  - https://184.172.241.11/creds
 - Ping ingresses on awscluster:
   - https://icp-e526-proxy-c1a3ab0c1291f594.elb.eu-west-2.amazonaws.com/monitoring
   - https://icp-e526-proxy-c1a3ab0c1291f594.elb.eu-west-2.amazonaws.com/creds

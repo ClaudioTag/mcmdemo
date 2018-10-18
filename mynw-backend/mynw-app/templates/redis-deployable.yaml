@@ -1,15 +1,15 @@
-apiVersion: mcm.ibm.com/v1alpha1
-kind: Deployable
-metadata:
-  name: mynw-redis
-  labels:
-    app: mynw-app
-    chart: mynw-redis-1.1.11
-    release: mynw-redis
-    name: mynw-redis
-    servicekind: ApplicationService
-    placementPolicy: mynw-app-pp
-    solution: mynw-app-mcm
+#apiVersion: mcm.ibm.com/v1alpha1
+#kind: Deployable
+#metadata:
+#  name: mynw-redis
+#  labels:
+#    app: mynw-app
+#    chart: mynw-redis-1.1.11
+#    release: mynw-redis
+#    name: mynw-redis
+#    servicekind: ApplicationService
+#    placementPolicy: mynw-app-pp
+#    solution: mynw-app-mcm
 #spec:
 #  deployer:
 #    kind: helm

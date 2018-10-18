@@ -5,6 +5,7 @@ metadata:
     app: gateway-icp
     chart: "gateway-icp-0.0.1"
     release: "mynw-gateway"
+    soltution: mynw-app-mcm
   name: gateway-icp
 status: {}
 spec:
@@ -16,6 +17,7 @@ spec:
       labels:
         app: gateway-icp
         role: service
+        soltution: mynw-app-mcm
     spec:
       imagePullSecrets:
         - name: regsecret-chatbot

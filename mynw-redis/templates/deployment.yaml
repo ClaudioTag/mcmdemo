@@ -7,10 +7,12 @@ metadata:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"
+    solution: mynw-app-mcm
 spec:
   template:
     metadata:
       labels:
+        solution: mynw-app-mcm
         app: redis-icp
 {{- if .Values.podLabels }}
 {{ toYaml .Values.podLabels | indent 8 }}

@@ -4,6 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: chatbot-icp
+    soltution: mynw-app-mcm
   name: chatbot-icp
 spec:
   ports:
@@ -12,4 +13,3 @@ spec:
     targetPort: bot-port
   selector:
     app: chatbot-icp
-

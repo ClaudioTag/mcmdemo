@@ -5,7 +5,6 @@ metadata:
     app: gateway-icp
     chart: "gateway-icp-0.0.1"
     release: "mynw-gateway"
-    soltution: mynw-app-mcm
   name: gateway-icp
 status: {}
 spec:

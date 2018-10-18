@@ -4,6 +4,7 @@ metadata:
   name: ipc-monitoring
   labels:
     versionNo: 0.0.7
+    soltution: mynw-app-mcm
 spec:
   replicas: 1
   template:
@@ -14,6 +15,7 @@ spec:
         tier: backend
         track: stable
         role: web
+        soltution: mynw-app-mcm
     spec:
       imagePullSecrets:
         - name: regsecret

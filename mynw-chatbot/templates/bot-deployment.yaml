@@ -5,6 +5,7 @@ metadata:
     app: chatbot-icp
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
+    soltution: mynw-app-mcm
   name: chatbot-icp
 status: {}
 spec:
@@ -16,6 +17,7 @@ spec:
       labels:
         app: chatbot-icp
         role: service
+        soltution: mynw-app-mcm
     spec:
       imagePullSecrets:
         - name: regsecret-chatbot

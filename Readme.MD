@@ -5,7 +5,7 @@
 - AWS cluster: https://icp-e526-console-62d49fd43e0570d3.elb.eu-west-2.amazonaws.com:8443
 
 ## How to demo
-- Deploy mynw-app chart to Hubcluster:
+- Deploy mynw-app chart to Hubcluster (via CLI or from ICP catalogue):
 ```
 $ helm install <chart name>-<version number>.tgz --name <release name> --tls
 ```
@@ -21,19 +21,33 @@ $ kubectl edit pp <placement_policy_name>
 - Ping ingresses on awscluster:
   - https://icp-e526-proxy-c1a3ab0c1291f594.elb.eu-west-2.amazonaws.com/monitoring
   - https://icp-e526-proxy-c1a3ab0c1291f594.elb.eu-west-2.amazonaws.com/creds
+- Show application via mobile front end
 
 ## To-do
-- Add application components to MCM application
 - Chart is not deployable from UI, but on Helm CLI
-- Move images from AWS docker to ICP docker registry on 158.176.105.236
 
 ## How to build and deploy applications
-- Create secrets to pull docker image from repo:
+- Get AWS token to access docker registry:
+  - Login to AWS account: 038180458258
+  - Go here https://console.aws.amazon.com/iam/home?region=eu-west-1#/users
+  - Click on name > Security Credentials > Create access key
+  - Type `aws configure` in terminal and use the following values:
+    - Fill out key and secret from the above step
+    - `Default region` = `eu-west-1`
+    - Leave all other options as default (just press enter)
+  - Type `aws --region eu-west-1 ecr get-login --no-include-email` to attain login token
+- In both clusters, create secrets to pull docker image from AWS repo:
+  - regsecret:
 ```
-$ kubectl create secret docker-registry regsecret --docker-server=icp-e526-console-62d49fd43e0570d3.elb.eu-west-2.amazonaws.com:8500/default/monitoring --docker-username=admin --docker-password=<admin token> --docker-email=test@mail.com
+$ kubectl create secret docker-registry regsecret --docker-server=icp-e526-console-62d49fd43e0570d3.elb.eu-west-2.amazonaws.com:8500/default/monitoring --docker-username=admin --docker-password=<AWS token> --docker-email=test@mail.com
 ```
+  - regsecret-creds:
 ```
-$ kubectl create secret docker-registry regsecret-creds --docker-server=icp-e526-console-62d49fd43e0570d3.elb.eu-west-2.amazonaws.com:8500/default/monitoring --docker-username=admin --docker-password=<admin token> --docker-email=test@mail.com
+$ kubectl create secret docker-registry regsecret-creds --docker-server=icp-e526-console-62d49fd43e0570d3.elb.eu-west-2.amazonaws.com:8500/default/monitoring --docker-username=admin --docker-password=<AWS token> --docker-email=test@mail.com
+```
+  - regsecret-chatbot:
+```
+$ kubectl create secret docker-registry regsecret-chatbot --docker-server=icp-e526-console-62d49fd43e0570d3.elb.eu-west-2.amazonaws.com:8500/default/monitoring --docker-username=admin --docker-password=<AWS token> --docker-email=test@mail.com
 ```
 - Package components via `helm package` and upload them to this git repo
 - Point deployable files to the charts in this github repository

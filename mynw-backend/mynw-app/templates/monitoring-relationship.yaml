@@ -4,7 +4,7 @@ metadata:
   name: mynw-monitoring
   labels:
     app: mynw-app
-    chart: mynw-monitoring-0.0.7
+    chart: mynw-monitoring-0.0.8
     release: mynw-monitoring
     solution: mynw-app-mcm
 spec:

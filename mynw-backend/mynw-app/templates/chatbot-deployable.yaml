@@ -4,7 +4,7 @@ metadata:
   name: mynw-chatbot
   labels:
     app: mynw-app
-    chart: mynw-chatbot-0.0.1
+    chart: mynw-chatbot-0.0.2
     release: mynw-chatbot
     name: mynw-chatbot
     servicekind: ApplicationService

@@ -4,7 +4,7 @@ metadata:
   name: mynw-creds
   labels:
     app: mynw-app
-    chart: mynw-creds-0.0.3
+    chart: mynw-creds-0.0.4
     release: mynw-creds
     name: mynw-creds
     servicekind: ApplicationService

@@ -4,7 +4,7 @@ metadata:
   name: mynw-gateway
   labels:
     app: mynw-app
-    chart: mynw-gateway-0.0.1
+    chart: mynw-gateway-0.0.2
     release: mynw-gateway
     name: mynw-gateway
     servicekind: ApplicationService

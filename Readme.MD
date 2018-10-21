@@ -36,16 +36,13 @@ $ kubectl edit pp <placement_policy_name>
     - `Default region` = `eu-west-1`
     - Leave all other options as default (just press enter)
   - Type `aws --region eu-west-1 ecr get-login --no-include-email` to attain login token
-- In both clusters, create secrets to pull docker image from AWS repo:
-  - regsecret:
+- In both clusters, create the following 3 secrets to pull docker image from AWS repo:
 ```
 $ kubectl create secret docker-registry regsecret --docker-server=icp-e526-console-62d49fd43e0570d3.elb.eu-west-2.amazonaws.com:8500/default/monitoring --docker-username=admin --docker-password=<AWS token> --docker-email=test@mail.com
 ```
-  - regsecret-creds:
 ```
 $ kubectl create secret docker-registry regsecret-creds --docker-server=icp-e526-console-62d49fd43e0570d3.elb.eu-west-2.amazonaws.com:8500/default/monitoring --docker-username=admin --docker-password=<AWS token> --docker-email=test@mail.com
 ```
-  - regsecret-chatbot:
 ```
 $ kubectl create secret docker-registry regsecret-chatbot --docker-server=icp-e526-console-62d49fd43e0570d3.elb.eu-west-2.amazonaws.com:8500/default/monitoring --docker-username=admin --docker-password=<AWS token> --docker-email=test@mail.com
 ```

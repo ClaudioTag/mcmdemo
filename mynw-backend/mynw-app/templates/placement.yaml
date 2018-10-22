@@ -4,7 +4,7 @@ metadata:
   name: mynw-app-pp
   labels:
     name: mynw-app
-    chart: mynw-app-0.1.1
+    chart: mynw-app-0.1.2
     hcmappname: "app"
     app: mynw-app
     release: mynw-app

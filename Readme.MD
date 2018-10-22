@@ -23,9 +23,6 @@ $ kubectl edit pp <placement_policy_name>
   - https://icp-e526-proxy-c1a3ab0c1291f594.elb.eu-west-2.amazonaws.com/creds
 - Show application via mobile front end
 
-## To-do
-- Chart is not deployable from UI, but on Helm CLI
-
 ## How to build and deploy applications
 - Get AWS token to access docker registry:
   - Login to AWS account: 038180458258

@@ -38,13 +38,13 @@ $ kubectl edit pp <placement_policy_name>
   - Type `aws --region eu-west-1 ecr get-login --no-include-email` to attain login token
 - In both clusters, create the following 3 secrets to pull docker image from AWS repo:
 ```
-$ kubectl create secret docker-registry regsecret --docker-server=icp-e526-console-62d49fd43e0570d3.elb.eu-west-2.amazonaws.com:8500/default/monitoring --docker-username=admin --docker-password=<AWS token> --docker-email=test@mail.com
+$ kubectl create secret docker-registry regsecret-chatbot --docker-server=038180458258.dkr.ecr.eu-west-1.amazonaws.com/chatbot --docker-username=AWS --docker-password=<AWS token> --docker-email=test@mail.com
 ```
 ```
-$ kubectl create secret docker-registry regsecret-creds --docker-server=icp-e526-console-62d49fd43e0570d3.elb.eu-west-2.amazonaws.com:8500/default/monitoring --docker-username=admin --docker-password=<AWS token> --docker-email=test@mail.com
+$ kubectl create secret docker-registry regsecret-creds --docker-server=038180458258.dkr.ecr.eu-west-1.amazonaws.com/creds --docker-username=AWS --docker-password=<AWS token> --docker-email=test@mail.com
 ```
 ```
-$ kubectl create secret docker-registry regsecret-chatbot --docker-server=icp-e526-console-62d49fd43e0570d3.elb.eu-west-2.amazonaws.com:8500/default/monitoring --docker-username=admin --docker-password=<AWS token> --docker-email=test@mail.com
+$ kubectl create secret docker-registry regsecret --docker-server=038180458258.dkr.ecr.eu-west-1.amazonaws.com/monitoring --docker-username=AWS --docker-password=<AWS token> --docker-email=test@mail.com
 ```
 - Package components via `helm package` and upload them to this git repo
 - Point deployable files to the charts in this github repository

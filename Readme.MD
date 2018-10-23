@@ -1,6 +1,6 @@
 # Nationwide MCM PoC - Phase 2: myNationwide
 
-<img align="left" src="https://raw.githubusercontent.com/ClaudioTag/mcmdemo/master/mynw-backend/mynw-app/icon.png?sanitize=true" width="150" height="150" />
+<img align="left" src="https://raw.githubusercontent.com/ClaudioTag/mcmdemo/master/mynw-backend/mynw-app/icon.png?sanitize=true" width="120" height="120" />
 
 
 ## Clusters

@@ -4,7 +4,7 @@ metadata:
   name: mynw-app
   labels:
     app: mynw-app
-    chart: mynw-app-0.1.2
+    chart: mynw-app-0.1.3
     release: mynw-app
     name: mynw-app
 spec:

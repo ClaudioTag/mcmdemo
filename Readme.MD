@@ -38,13 +38,13 @@ $ kubectl edit pp <placement_policy_name>
   - Type `aws --region eu-west-1 ecr get-login --no-include-email` to attain login token
 - In both clusters, create the following 3 secrets to pull docker images from the AWS Docker registry:
 ```
-$ kubectl create secret docker-registry regsecret-chatbot --docker-server=038180458258.dkr.ecr.eu-west-1.amazonaws.com/chatbot --docker-username=AWS --docker-password=<AWS token> --docker-email=test@mail.com
+$ kubectl create secret docker-registry regsecret-chatbot --docker-server=038180458258.dkr.ecr.eu-west-1.amazonaws.com/chatbot --docker-username=AWS --docker-password=<AWS token> --docker-email=test@mail.com -n default
 ```
 ```
-$ kubectl create secret docker-registry regsecret-creds --docker-server=038180458258.dkr.ecr.eu-west-1.amazonaws.com/creds --docker-username=AWS --docker-password=<AWS token> --docker-email=test@mail.com
+$ kubectl create secret docker-registry regsecret-creds --docker-server=038180458258.dkr.ecr.eu-west-1.amazonaws.com/creds --docker-username=AWS --docker-password=<AWS token> --docker-email=test@mail.com -n default
 ```
 ```
-$ kubectl create secret docker-registry regsecret --docker-server=038180458258.dkr.ecr.eu-west-1.amazonaws.com/monitoring --docker-username=AWS --docker-password=<AWS token> --docker-email=test@mail.com
+$ kubectl create secret docker-registry regsecret --docker-server=038180458258.dkr.ecr.eu-west-1.amazonaws.com/monitoring --docker-username=AWS --docker-password=<AWS token> --docker-email=test@mail.com -n default
 ```
 **Note**: secrets expire every 12 hours.
 - Package components via `helm package` and upload them to this git repository

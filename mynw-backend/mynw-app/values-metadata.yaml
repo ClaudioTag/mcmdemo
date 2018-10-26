@@ -1,0 +1,39 @@
+replicaCount:
+  __metadata:
+    label: "Replicas across federated clusters"
+    description: "Each replica will be deployed to one cluster, based on selection criteria below."
+    required: true
+targetCluster:
+  __metadata:
+    label: "Target cluster labels"
+  labelSelector:
+    matchLabels:
+      __metadata:
+        label: "Cluster selection labels"
+      vendor:
+       __metadata:
+         label: "Kubernetes vendor"
+      region:
+       __metadata:
+         label: "Cluster region"
+      environment:
+       __metadata:
+         label: "Environment name"
+      datacenter:
+        __metadata:
+          label: "Datacenter location"
+      owner:
+        __metadata:
+          label: "Cluster owner"
+      cloud:
+        __metadata:
+          label: "Cloud provider"
+  resourceSelector:
+    __metadata:
+      label: "Cluster selection criteria"
+    type:
+      __metadata:
+        label: "Select based on:"
+    order:
+      __metadata:
+        label: "In order:"

@@ -2,11 +2,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 license: accept
-
 replicaCount: 1
-
-appInClusterNamespace: default
-
 targetCluster:
   labelSelector:
     matchLabels:
@@ -18,3 +14,4 @@ targetCluster:
       cloud: "IBM"
   resourceSelector:
     type: cpu
+    order: desc

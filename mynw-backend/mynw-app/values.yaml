@@ -4,3 +4,17 @@
 license: accept
 
 replicaCount: 1
+
+appInClusterNamespace: default
+
+targetCluster:
+  labelSelector:
+    matchLabels:
+      vendor: "ICP"
+      region: "US"
+      environment: Dev
+      datacenter: "raleigh"
+      owner: "offering"
+      cloud: "IBM"
+  resourceSelector:
+    type: cpu

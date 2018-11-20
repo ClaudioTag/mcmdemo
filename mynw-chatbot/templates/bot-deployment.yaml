@@ -200,7 +200,7 @@ spec:
           - name: WCS_VERSION_DATE
             value: '2017-02-03'
           - name: WCS_WORKSPACE_NAME
-            value: 'Concierge'
+            value: 'Concierge Stan Test'
           - name: WCS_POLLER_INTERVAL
             value: '45000'
           - name: WCS_DEFAULT_UNAVAILABLE_MESSAGE
@@ -275,3 +275,7 @@ spec:
             value: 'https://www.nationwide.co.uk/services/toolservice.svc/GetMortgageSelectorRates'
           - name: MORTGAGE_RATES_BUTTON_TITLE
             value: More info and apply
+          - name: AWSIPSTART_ENABLED
+            value: 'true'
+          - name: AWSIPSTART
+            value: '3.16'

@@ -278,4 +278,4 @@ spec:
           - name: AWSIPSTART_ENABLED
             value: 'true'
           - name: AWSIPSTART
-            value: '3.16'
+            value: '18.130'

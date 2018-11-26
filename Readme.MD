@@ -47,6 +47,7 @@ $ kubectl create secret docker-registry regsecret-creds --docker-server=03818045
 $ kubectl create secret docker-registry regsecret --docker-server=038180458258.dkr.ecr.eu-west-1.amazonaws.com/monitoring --docker-username=AWS --docker-password=<AWS token> --docker-email=test@mail.com -n default
 ```
 **Note**: secrets expire every 12 hours.
+- Change AWS cluster prefix by editing the `name: AWSIPSTART` value in `mynw-chatbot/template/bot-deployment.yaml` file. Use the first two octects of the AWS IP address where ICP is running.
 - Package components via `helm package` and upload them to this git repository
 - Point deployable files to the charts in this github repository
 - Update version number

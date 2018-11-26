@@ -4,7 +4,7 @@ metadata:
   name: mynw-chatbot
   labels:
     app: mynw-app
-    chart: mynw-chatbot-0.0.2
+    chart: mynw-chatbot-0.0.3
     release: mynw-chatbot
     name: mynw-chatbot
     servicekind: ApplicationService
@@ -14,5 +14,5 @@ spec:
   deployer:
     kind: helm
     helm:
-      chartURL: https://raw.githubusercontent.com/ClaudioTag/mcmdemo/master/mynw-chatbot-0.0.2.tgz
+      chartURL: https://raw.githubusercontent.com/ClaudioTag/mcmdemo/master/mynw-chatbot-0.0.3.tgz
       namespace: default

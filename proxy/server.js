@@ -1,7 +1,7 @@
 var proxy = require('express-http-proxy');
 var app = require('express')();
 
-const targetAddress = 'https://184.172.241.11/';
+const targetAddress = 'https://184.172.241.13/';
 
 app.use('/proxy', proxy(targetAddress, {
     proxyReqOptDecorator: function(proxyReqOpts, originalReq) {

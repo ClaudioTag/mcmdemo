@@ -4,7 +4,7 @@
 
 
 ## Clusters
-- Hub cluster: https://184.172.241.11:8443/multicloud/overview
+- Hub cluster: https://184.172.241.13:8443/multicloud/overview
 - AWS cluster: https://icp-e526-console-62d49fd43e0570d3.elb.eu-west-2.amazonaws.com:8443
 
 ## How to demo
